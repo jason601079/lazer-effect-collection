@@ -18,7 +18,7 @@ export const products: Product[] = [
   {
     id: "laser-classic-black",
     name: "Laser Classic Black",
-    price: 29.99,
+    price: 549.99,
     image: skullCapBlack,
     colors: ["Black"],
     description: "The original Lazer Effect skull cap featuring our signature minimalist laser-etched logo. Crafted from premium cotton blend for all-day comfort.",
@@ -34,7 +34,7 @@ export const products: Product[] = [
   {
     id: "neon-purple-edition",
     name: "Neon Purple Edition",
-    price: 34.99,
+    price: 639.99,
     image: skullCapPurple,
     colors: ["Purple"],
     description: "Limited edition purple skull cap with holographic laser accents that shift and shimmer in the light. Perfect for making a bold statement.",
@@ -50,7 +50,7 @@ export const products: Product[] = [
   {
     id: "cyber-grey-pattern",
     name: "Cyber Grey Pattern",
-    price: 32.99,
+    price: 599.99,
     image: skullCapGrey,
     colors: ["Grey"],
     description: "Cyberpunk-inspired grey skull cap featuring an intricate green laser pattern. Where street style meets futuristic design.",
@@ -66,7 +66,7 @@ export const products: Product[] = [
   {
     id: "navy-tribal-laser",
     name: "Navy Tribal Laser",
-    price: 31.99,
+    price: 579.99,
     image: skullCapNavy,
     colors: ["Navy"],
     description: "Deep navy skull cap with cyan tribal laser patterns inspired by digital art and modern geometry. A perfect fusion of tradition and technology.",

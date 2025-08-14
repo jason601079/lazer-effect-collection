@@ -2,9 +2,11 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, Search, Menu } from "lucide-react";
 import { useState } from "react";
+import { useCart } from "@/contexts/CartContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { getTotalItems, openCart } = useCart();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -60,8 +62,13 @@ const Header = () => {
             <Button variant="ghost" size="icon">
               <Search className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" onClick={openCart} className="relative">
               <ShoppingCart className="h-5 w-5" />
+              {getTotalItems() > 0 && (
+                <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  {getTotalItems()}
+                </span>
+              )}
             </Button>
           </div>
         </div>

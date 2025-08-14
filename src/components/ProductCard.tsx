@@ -32,7 +32,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         
         <div className="flex items-center justify-between">
           <span className="text-xl font-bold text-primary">
-            ${product.price}
+            R{product.price.toFixed(2)}
           </span>
           <div className="flex gap-1">
             {product.colors.map((color) => (

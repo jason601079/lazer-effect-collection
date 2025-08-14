@@ -7,10 +7,12 @@ import { Badge } from "@/components/ui/badge";
 import { products } from "@/data/products";
 import { ArrowLeft, ShoppingCart, Heart, Share2, Star } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useCart } from "@/contexts/CartContext";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const { toast } = useToast();
+  const { addItem, openCart } = useCart();
   const [selectedColor, setSelectedColor] = useState(0);
   const [quantity, setQuantity] = useState(1);
 
@@ -31,10 +33,14 @@ const ProductDetail = () => {
   }
 
   const handleAddToCart = () => {
+    addItem(product, quantity, product.colors[selectedColor]);
     toast({
       title: "Added to Cart",
       description: `${product.name} has been added to your cart.`,
     });
+    setTimeout(() => {
+      openCart();
+    }, 500);
   };
 
   return (
@@ -88,7 +94,7 @@ const ProductDetail = () => {
             </div>
 
             <div className="text-3xl font-bold text-primary">
-              ${product.price}
+              R{product.price.toFixed(2)}
             </div>
 
             <p className="text-lg text-muted-foreground">
@@ -214,7 +220,7 @@ const ProductDetail = () => {
                     </div>
                     <CardContent className="p-4">
                       <h3 className="font-semibold mb-2">{relatedProduct.name}</h3>
-                      <p className="text-primary font-bold">${relatedProduct.price}</p>
+                      <p className="text-primary font-bold">R{relatedProduct.price.toFixed(2)}</p>
                     </CardContent>
                   </Link>
                 </Card>
